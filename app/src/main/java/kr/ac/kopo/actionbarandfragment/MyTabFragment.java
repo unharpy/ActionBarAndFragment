@@ -2,9 +2,11 @@ package kr.ac.kopo.actionbarandfragment;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
@@ -28,13 +30,26 @@ public class MyTabFragment extends Fragment {
         baseLayout.setOrientation(LinearLayout.VERTICAL);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         baseLayout.setLayoutParams(params);
+        baseLayout.setGravity(Gravity.CENTER);
 
-        if (tabName.equals("Spring"))
+        ImageView img1 = new ImageView(super.getActivity());
+        img1.setImageResource(R.drawable.spring);
+        img1.setAdjustViewBounds(true);
+//        LinearLayout.LayoutParams params1 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        baseLayout.addView(img1);
+
+        if (tabName.equals("Spring")){
             baseLayout.setBackgroundColor(Color.GREEN);
-        if (tabName.equals("Summer"))
+            img1.setImageResource(R.drawable.spring);
+        }
+        if (tabName.equals("Summer")){
             baseLayout.setBackgroundColor(Color.RED);
-        if (tabName.equals("Fall"))
+            img1.setImageResource(R.drawable.summer);
+        }
+        if (tabName.equals("Fall")){
             baseLayout.setBackgroundColor(Color.rgb(204,114,61));
+            img1.setImageResource(R.drawable.fall);
+        }
 
         return baseLayout;
     }
